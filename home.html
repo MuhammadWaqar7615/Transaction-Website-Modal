@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style_home.css" />
+  </head>
+  <body>
+    <main>
+      <div class="cont">
+        <div class="icons">
+          <a href="#" id="burgur">
+            <i class="fa-solid fa-bars"></i>
+          </a>
+          <a href="#"id="close">
+            <i class="fa-solid fa-xmark"></i>
+          </a>
+        </div>
+        <div class="hamMenu">
+          <div class="content">
+            <!-- <button onclick="hideMenu()">Go Back</button> -->
+            <ul>
+              <li><a id="hamTranLogs" href="#">TRANSACTIONS</a></li>
+              <li><a id="hamTranHistory" href="#">TRANSEATION HISTORY</a></li>
+              <li><a id="hamLogHistory" href="#">LOGIN HISTORY</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="details">
+          <div class="profile">
+            <div class="profileImg">
+              <div class="img">
+                <img id="profImg"  src="./assets/image.png" alt="" />
+              </div>
+            </div>
+            <div class="btn">
+              <button id="editInfoBtn">Edit Info</button>
+              <button id="editProfBtn">Edit Profile</button>
+            </div>
+
+            <div class="wrap">
+              <i class="fa-solid fa-user"></i>
+              <strong
+                >Username:
+                <span id="profUserName" class="data"
+                  >Muhammad Waqar</span
+                ></strong
+              >
+            </div>
+
+            <div class="wrap">
+              <i class="fa-solid fa-envelope"></i>
+              <strong
+                >Email:
+                <span id="profEmail" class="data">waqar@gmail.com</span></strong
+              >
+            </div>
+
+            <div class="wrap">
+              <i class="fa-solid fa-money-check-dollar"></i>
+              <strong
+                >Acc No:
+                <span id="profAccNo" class="data">12345678</span></strong
+              >
+            </div>
+
+            <div class="wrap">
+              <i class="fa-solid fa-dollar-sign"></i>
+              <strong
+                >Balance:
+                <span id="profBalance" class="data">40000</span></strong
+              >
+            </div>
+            <div class="wrap wrapLogOutBtn">
+              <button id="logOut">
+                <i class="fa-solid fa-power-off"></i>
+                <strong>Log Out</strong>
+              </button>
+              <button id="delAcc">
+                <i class="fa-solid fa-trash"></i>
+                <strong>Delete</strong>
+              </button>
+            </div>
+          </div>
+          <span id="editInfoCross"><i class="fa-solid fa-xmark"></i></span>
+          <form action="home.html" class="editInfoData">
+            <label>Enter Username: </label>
+            <input
+              onkeypress="return event.target.value.length < 25"
+              type="text"
+              id="inputUser"
+              placeholder="Enter your New Username"
+            />
+            <label>Enter Old Password: </label>
+            <input
+              onkeypress="return event.target.value.length < 12"
+              type="password"
+              id="inputOldPass"
+              placeholder="password"
+            />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="editProfData">
+          <button id="delImg">Delete Image</button>
+          <input type="file" accept="image/*" id="userInputPic" />
+          <!-- <button id="uploadBtn">Upload Image</button> -->
+          <span id="cameraBtn"
+            ><i class="fa-solid fa-camera"></i> Open Camera</span
+          >
+
+          <video id="video"></video>
+          <button id="captureBtn">Capture Photo</button>
+          <canvas id="canvas"></canvas>
+          <img id="img" alt="" />
+
+          <!-- <button id="camUploadBtn">Upload Image</button> -->
+          <button id="userImgBtn">Submit</button>
+        </div>
+      </div>
+
+      <section>
+        <header>
+          <a id="log" href="#">TRANSACTIONS</a>
+          <a id="his" href="#">TRANSACTION HISTORY</a>
+          <a id="login" href="#">LOGIN HISTORY</a>
+        </header>
+        <div class="main">
+          <div class="card">
+            <form class="tranLogs">
+              <div class="tranWrap">
+                <span>
+                  <i class="fa-solid fa-money-check"></i>
+                  <label for="num">Receiver Account Number: </label>
+                </span>
+                <input
+                  onkeypress="return event.target.value.length < 16"
+                  id="num"
+                  name="numb"
+                  type="number"
+                  placeholder="Receiver Account Number"
+                  required
+                />
+              </div>
+
+              <div class="tranWrap">
+                <span>
+                  <i class="fa-solid fa-dollar-sign"></i>
+                  <label for="amount">Enter Ammount: </label>
+                </span>
+                <input
+                  onkeypress="return event.target.value.length < 3"
+                  id="amount"
+                  type="number"
+                  placeholder="Enter Amount"
+                  required
+                />
+              </div>
+
+              <div class="tranWrap">
+                <span>
+                  <i class="fa-solid fa-key"></i>
+                  <label for="cv">Card CV Number: </label>
+                </span>
+                <input
+                  onkeypress="return event.target.value.length < 3"
+                  id="cv"
+                  type="number"
+                  placeholder="Card CV Number"
+                  required
+                />
+              </div>
+
+              <button id="tranLogs">
+                <span><i class="fa-solid fa-paper-plane"></i></span>
+                Transfer Amount
+              </button>
+
+              <div class="links"></div>
+
+              
+            </form>
+
+            <div class="tranHistory">
+              <table id="tranTable">
+                <thead>
+                    <input type="search" placeholder="Search Table Data" id="tranTableSrch">
+                  <tr>
+                    <th>
+                      <input type="checkbox" id="chkRec" class="tranCheck" checked/>
+                      <label for="chkRec">Receivers Account</label>
+                    </th>
+                  
+                    <th>
+                      <input type="checkbox" id="chkBal" class="tranCheck" checked/>
+                      <label for="chkBal">Transaction</label>
+                    </th>
+                    <th>
+                      <input type="checkbox" id="chkCv" class="tranCheck" checked/>
+                      <label for="chkCv">CVV</label>
+                    </th>
+                    <th>
+                      <input type="checkbox" id="chkDate" class="tranCheck" checked/>
+                      <label for="chkDate">Date</label>
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody class="tranTablebody"></tbody>
+              </table>
+            </div>
+
+            <div class="loginHistory">
+              <table id="loginTable">
+                <thead>
+                  <input type="search" placeholder="Search Table Data" id="loginTableSrch">
+                  <tr>
+                    <th>
+                      <input type="checkbox"  id="logProfImg" checked>
+                      <label for="logProfImg">Profile Image</label>
+                    </th>
+                    <th>
+                      <input type="checkbox"  id="logDate" checked>
+                      <label for="logDate">Date</label>
+                    </th>
+                    <th>
+                      <input type="checkbox"  id="logEmail" checked>
+                      <label for="logEmail">Email</label>
+                    </th>
+                    <th>
+                      <input type="checkbox"  id="logAccNo" checked>
+                      <label for="logAccNo">Account No</label>
+                    </th>
+                    <th>
+                      <input type="checkbox"  id="logBrows" checked>
+                      <label for="logBrows">Browser Details</label>
+                    </th>
+                  </tr>
+
+
+
+
+                  <!-- <input type="checkbox" name="chkValRec" id="chkLogRec" checked />
+                  <label for="c1">Profile Image</label>
+                  <th id="c1">Profile Image</th>
+
+                  <input type="checkbox" name="chkValRec" id="chkLogDate" checked />
+                  <label for="c2">Date</label>
+                  <th id="c2">Date</th>
+
+                  <input type="checkbox" name="chkValRec" id="chkLogEmail" checked />
+                  <label for="c3">Email</label>
+                  <th id="c3">Email</th>
+
+                  <input type="checkbox" name="chkValRec" id="chkLogAccNo" checked />
+                  <label for="c4">Account No</label>
+                  <th id="c4">Account No</th>
+
+                  <input type="checkbox" name="chkValRec" id="chkLogBrows" checked />
+                  <input id="srchLogBrows" type="search" placeholder="Browser Details" disabled />
+                  <th id="c5">Browser Details</th> -->
+                </thead>
+
+                <tbody class="loginTablebody"></tbody>
+              </table>
+            </div>
+
+            
+            
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="tranSuccessful">
+      <div class="banner">
+        <img src="./assets/image.png" id="succImg" alt="" />
+        <span>
+          <i class="fa-solid fa-xmark" id="xMark"></i>
+        </span>
+        <h2>
+          <img src="./assets/check.png" alt="" /> Transaction
+          Successful
+        </h2>
+      </div>
+      <div class="tranSuccDet">
+        <div class="gap"></div>
+        <div class="d1" id="succDet1">
+          <strong>Reciever Account:</strong>
+          <p id="cardPara1">012345</p>
+        </div>
+        <div class="d1" id="succDet2">
+          <strong>Date:</strong>
+          <p id="cardPara2">12345</p>
+        </div>
+        <div class="d1" id="succDet3">
+          <strong>Ammount:</strong>
+          <p id="cardPara3">12345</p>
+        </div>
+        <div class="d1" id="succDet4">
+          <strong>Current Balance: </strong>
+          <p id="cardPara4">12345</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="delConfirm">
+      <span>
+        <i id="delConCross" class="fa-solid fa-xmark"></i>
+      </span>
+      <h2>Are you sure you want to Delete your account</h2>
+      <div class="btns">
+        <button id="crossYes">Yes</button>
+        <button id="crossNo">No</button>
+      </div>
+    </div>
+    <script src="homePageStyle.js"></script>
+  </body>
+</html>
